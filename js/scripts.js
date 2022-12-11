@@ -25,14 +25,15 @@ let pokemonRepository = (function () {
 pokemonRepository.add({
     id: 25,
     name: "Pikachu",
-    type: "electric",
+    type: ["electric"],
     XP: 100,
     height: 1.2
 });
 pokemonRepository.add({
     id: 1,
     name: "Bulbasaur",
-    type: "grass", XP: 50,
+    type: ["grass"],
+    XP: 50,
     height: 2.2
 });
 pokemonRepository.add({
@@ -45,7 +46,7 @@ pokemonRepository.add({
 pokemonRepository.add({
     id: 157,
     name: "Typhlosion",
-    type: "fire",
+    type: ["fire"],
     XP: 73,
     height: 1.7
 });
