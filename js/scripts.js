@@ -3,7 +3,7 @@ let pokemonRepository = (function () {
     let pokemonList = [];
 
     function add(pokemon) {
-        if (typeof pokemon === 'object' && pokemon.name && pokemon.height && pokemon.type && Object.keys(pokemon).length === 3) {
+        if (typeof pokemon === 'object' && pokemon.name && pokemon.height && pokemon.type && Object.keys(pokemon).length === 5) {
             pokemonList.push(pokemon);
         } else {
             return `${pokemon} is not a Pokémon. Pokémon must be an object with the keys name, height and type`;
