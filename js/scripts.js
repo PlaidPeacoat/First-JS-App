@@ -1,78 +1,79 @@
 let pokemonRepository = (function () {
-
-    let pokemonList = [];
+    let pokemonList = [
+        {
+            id: 25,
+            name: "Pikachu",
+            type: ["electric"],
+            XP: 100,
+            height: 1.2
+        },
+        {
+            id: 1,
+            name: "Bulbasaur",
+            type: ["grass"],
+            XP: 50,
+            height: 2.2,
+        },
+        {
+            id: 7,
+            name: "Squirtle",
+            type: ["water"],
+            XP: 65,
+            height: 1.8
+        },
+        {
+            id: 157,
+            name: "Typhlosion",
+            type: ["fire"],
+            XP: 73,
+            height: 1.7
+        },
+    ];
 
     function add(pokemon) {
-        if (typeof pokemon === 'object' && pokemon.name && pokemon.height && pokemon.type && Object.keys(pokemon).length === 5) {
+        if (typeof pokemon === "object" &&
+            Object.keys(pokemon).includes("id") &&
+            Object.keys(pokemon).includes("name") &&
+            Object.keys(pokemon).includes("type") &&
+            Object.keys(pokemon).includes("XP") &&
+            Object.keys(pokemon).includes("height")) {
             pokemonList.push(pokemon);
         } else {
-            return `${pokemon} is not a Pokémon. Pokémon must be an object with the keys name, height and type`;
+            alert("Field is empty or incorrect format");
         }
     }
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector(".pokemon-list");
+        let listpokemon = document.createElement("li");
+        let button = document.createElement("button");
+        button.innerText = pokemon.name;
+        button.classList.add("pokemon-button");
+        button.addEventListener("click", (Event) =>
+            showDetails(pokemon));
+        listpokemon.appendChild(button);
+        pokemonList.appendChild(listpokemon);
 
-    function getAll() {
-        return pokemonList
+    }
+    function showDetails(pokemon) {
+        console.log(pokemon);
     }
 
+    //getAll function to return all of the items in the pokemonList array
+    function getAll() {
+        return pokemonList;
+    }
     return {
         add: add,
-        getAll: getAll
-
+        getAll: getAll,
+        addListItem: addListItem
     };
-
 })();
 
-pokemonRepository.add({
-    id: 25,
-    name: "Pikachu",
-    type: ["electric"],
-    XP: 100,
-    height: 1.2
-});
-pokemonRepository.add({
-    id: 1,
-    name: "Bulbasaur",
-    type: ["grass"],
-    XP: 50,
-    height: 2.2
-});
-pokemonRepository.add({
-    id: 7,
-    name: "Squirtle",
-    type: "water",
-    XP: 65,
-    height: 1.8
-});
-pokemonRepository.add({
-    id: 157,
-    name: "Typhlosion",
-    type: ["fire"],
-    XP: 73,
-    height: 1.7
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
 });
 
-let pokemonList = pokemonRepository.getAll();
 
-
-//forEach() function to iterate over the Pokémon in the pokemonList array (external function)
-pokemonList.forEach(printDetails);
-function printDetails(pokemon) {
-    let highlight = '';
-    if (pokemon.height > 2.0) {
-        highlight = " - Wow, that’s big!";
-    }
-    document.write(`<li>${pokemon.name} (height: ${pokemon.height}) ${highlight}</li>`);
-}
-
-let pokemonNames = [];
-for (let i = 0; i < pokemonList.length; i++) {
-    pokemonNames.push(pokemonList[i].name);
-}
-
-function findPokemons(query) {
-    return pokemonNames.filter(function (name) {
-        return name.toLowerCase().indexOf(query.toLowerCase()) > -1;
-    });
-}
-
-console.log(findPokemons('Iv'))
+//I am trying to add an event listener to the button, but I am not sure how to do it. I have tried a few different ways but none of them seem to work. I am not sure if I am missing something or if I am just doing it wrong. Any help would be appreciated. Thanks!
