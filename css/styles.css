@@ -5,7 +5,7 @@ body {
     line-height: 1.6;
     display: block;
     text-align: justify;
-    background-color: #ffffff;
+    background-color: #00aaff;
     margin-top: 60px;
 }
 
@@ -42,6 +42,12 @@ h3 {
     width: 75%;
     background-color: #fffb00;
     border: 5px solid #05008f;
+}
+
+.pokemon-button:hover {
+    background-color: #05008f;
+    color: #fffb00;
+    border: 5px solid #fffb00;
 }
 
 .pokemon-list {
@@ -100,7 +106,7 @@ h3 {
     margin: auto;
     display: inline-block;
     box-sizing: border-box;
-    background: #fff;
+    background: #00aaff;
     padding: 15px;
     width: 100%;
     max-width: 400px;
@@ -113,7 +119,7 @@ h3 {
     background: none;
     border: 0;
     background: none;
-    color: #777;
+    color: #00aaff;
     text-decoration: underline;
 }
 
