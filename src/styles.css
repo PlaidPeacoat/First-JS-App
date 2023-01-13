@@ -88,7 +88,7 @@
     bottom: 0;
     padding: 16px 16px 16px 0;
     position: absolute;
-    text-align: left;
+    text-align: center;
   }
   /* Removes border when clicking closing button */
   .close:focus {
